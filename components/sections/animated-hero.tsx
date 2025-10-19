@@ -33,7 +33,7 @@ export function AnimatedHero() {
       transition: {
         duration: 6,
         repeat: Infinity,
-        ease: 'easeInOut',
+        repeatType: 'loop' as const,
       },
     },
   };
@@ -45,7 +45,7 @@ export function AnimatedHero() {
       transition: {
         duration: 8,
         repeat: Infinity,
-        ease: 'easeInOut',
+        repeatType: 'loop' as const,
       },
     },
   };
@@ -57,7 +57,7 @@ export function AnimatedHero() {
       transition: {
         duration: 7,
         repeat: Infinity,
-        ease: 'easeInOut',
+        repeatType: 'loop' as const,
       },
     },
   };
@@ -75,7 +75,7 @@ export function AnimatedHero() {
     <section className="relative min-h-screen bg-gradient-to-br from-white via-gray-50 to-white overflow-hidden">
       {/* Animated Background Artwork */}
       <div className="absolute inset-0 pointer-events-none opacity-20">
-        {placeholderArtwork.map((artwork, index) => (
+        {placeholderArtwork.map((artwork) => (
           <motion.div
             key={artwork.id}
             className={`absolute ${artwork.position} ${artwork.size} hidden lg:block`}
@@ -88,18 +88,18 @@ export function AnimatedHero() {
             {/* Placeholder for artwork image */}
             <div className="w-full h-full rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 shadow-xl backdrop-blur-sm border border-primary/5">
               <div className="w-full h-full flex items-center justify-center text-xs text-muted-foreground">
-                {artworkCredits[index] ? (
+                {artworkCredits[artwork.id - 1] ? (
                   <div className="relative w-full h-full">
                     {/* Replace this div with actual Image component when images are added */}
                     <div className="w-full h-full bg-muted rounded-2xl flex items-center justify-center p-4 text-center">
                       <span className="text-sm font-medium text-primary">
-                        {artworkCredits[index].title}
+                        {artworkCredits[artwork.id - 1].title}
                       </span>
                     </div>
                     {/* When images are ready:
                     <Image
-                      src={`/artwork/${artworkCredits[index].filename}`}
-                      alt={artworkCredits[index].title}
+                      src={`/artwork/${artworkCredits[artwork.id - 1].filename}`}
+                      alt={artworkCredits[artwork.id - 1].title}
                       fill
                       className="object-cover rounded-2xl"
                     />
