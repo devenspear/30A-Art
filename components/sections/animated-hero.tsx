@@ -126,11 +126,11 @@ export function AnimatedHero() {
           >
             <div className="flex justify-center mb-6">
               <Image
-                src="/30a-art-logo.jpg"
+                src="/30a-logo.png"
                 alt="30A·art"
-                width={400}
-                height={133}
-                className="mx-auto max-w-sm w-full h-auto"
+                width={600}
+                height={200}
+                className="mx-auto max-w-lg w-full h-auto"
                 priority
               />
             </div>
