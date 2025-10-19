@@ -45,44 +45,45 @@
 }
 
 :root {
-  --radius: 0.75rem; /* 12px rounded corners per PRD */
+  --radius: 0.75rem; /* 12px rounded corners */
 
-  /* 30A.art Brand Colors */
-  --gulf-blue: #0E1C22; /* Deep Gulf Blue - gate background */
+  /* 30A.art Brand Colors - Modern White Theme */
+  --gulf-blue: #0E1C22; /* Deep Gulf Blue - accents & CTAs */
   --gulf-accent: #1C5D73; /* Gulf Accent */
-  --sand: #F4F1EC; /* Sand Background */
-  --charcoal: #222; /* Charcoal Text */
+  --sand: #F4F1EC; /* Legacy sand color */
+  --charcoal: #1a1a1a; /* Dark text */
 
-  --background: #F4F1EC; /* Sand background */
-  --foreground: #222; /* Charcoal text */
+  /* Modern White Theme */
+  --background: #FFFFFF; /* Pure white background */
+  --foreground: #1a1a1a; /* Dark charcoal text */
   --card: #FFFFFF;
-  --card-foreground: #222;
+  --card-foreground: #1a1a1a;
   --popover: #FFFFFF;
-  --popover-foreground: #222;
-  --primary: #0E1C22; /* Deep Gulf Blue */
-  --primary-foreground: #F4F1EC;
+  --popover-foreground: #1a1a1a;
+  --primary: #0E1C22; /* Deep Gulf Blue for CTAs */
+  --primary-foreground: #FFFFFF;
   --secondary: #1C5D73; /* Gulf Accent */
   --secondary-foreground: #FFFFFF;
-  --muted: #E5E2DC;
-  --muted-foreground: #666;
+  --muted: #F8F9FA; /* Very light gray */
+  --muted-foreground: #6b7280;
   --accent: #1C5D73;
   --accent-foreground: #FFFFFF;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #D1CEC7;
-  --input: #E5E2DC;
+  --border: #e5e7eb;
+  --input: #f3f4f6;
   --ring: #1C5D73;
   --chart-1: #1C5D73;
   --chart-2: #0E1C22;
-  --chart-3: #F4F1EC;
-  --chart-4: #666;
-  --chart-5: #999;
+  --chart-3: #F8F9FA;
+  --chart-4: #6b7280;
+  --chart-5: #9ca3af;
   --sidebar: #FFFFFF;
-  --sidebar-foreground: #222;
+  --sidebar-foreground: #1a1a1a;
   --sidebar-primary: #0E1C22;
-  --sidebar-primary-foreground: #F4F1EC;
+  --sidebar-primary-foreground: #FFFFFF;
   --sidebar-accent: #1C5D73;
   --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: #D1CEC7;
+  --sidebar-border: #e5e7eb;
   --sidebar-ring: #1C5D73;
 }
 

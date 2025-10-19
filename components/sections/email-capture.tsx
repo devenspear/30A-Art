@@ -38,7 +38,7 @@ export function EmailCapture() {
   };
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="subscribe" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl font-light text-primary mb-4">
           Stay Connected

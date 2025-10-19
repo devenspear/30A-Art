@@ -1,0 +1,62 @@
+[
+  {
+    "id": "artwork-1",
+    "filename": "artwork-1.jpg",
+    "title": "Digital Graffiti Installation",
+    "artist": "Artist Name",
+    "type": "Digital Art",
+    "year": "2024",
+    "credit": "Alys Beach Digital Graffiti Festival",
+    "url": "https://www.alysbeach.com/digital-graffiti",
+    "photographer": "Photographer Name",
+    "license": "Used with permission"
+  },
+  {
+    "id": "artwork-2",
+    "filename": "artwork-2.jpg",
+    "title": "Digital Graffiti Installation",
+    "artist": "Artist Name",
+    "type": "Digital Art",
+    "year": "2024",
+    "credit": "Alys Beach Digital Graffiti Festival",
+    "url": "https://www.alysbeach.com/digital-graffiti",
+    "photographer": "Photographer Name",
+    "license": "Used with permission"
+  },
+  {
+    "id": "artwork-3",
+    "filename": "artwork-3.jpg",
+    "title": "Monarch Trail Sculpture",
+    "artist": "Artist Name",
+    "type": "Sculpture",
+    "year": "2024",
+    "credit": "Cultural Arts Alliance",
+    "url": "https://www.culturalartsalliance.com/monarch-art-trail",
+    "photographer": "Photographer Name",
+    "license": "Used with permission"
+  },
+  {
+    "id": "artwork-4",
+    "filename": "artwork-4.jpg",
+    "title": "Monarch Trail Sculpture",
+    "artist": "Artist Name",
+    "type": "Sculpture",
+    "year": "2024",
+    "credit": "Cultural Arts Alliance",
+    "url": "https://www.culturalartsalliance.com/monarch-art-trail",
+    "photographer": "Photographer Name",
+    "license": "Used with permission"
+  },
+  {
+    "id": "artwork-5",
+    "filename": "artwork-5.jpg",
+    "title": "30A Mural",
+    "artist": "Artist Name",
+    "type": "Mural",
+    "year": "2024",
+    "credit": "CAA & FDOT Partnership",
+    "url": "https://www.culturalartsalliance.com/art-in-public-spaces",
+    "photographer": "Photographer Name",
+    "license": "Used with permission"
+  }
+]
