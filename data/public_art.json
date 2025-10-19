@@ -1,0 +1,20 @@
+[
+  {
+    "id": "monarch-trail",
+    "title": "Monarch Art Trail",
+    "type": "Sculpture Trail",
+    "lat": 30.2912,
+    "lng": -86.0057,
+    "credit": "Cultural Arts Alliance",
+    "url": "https://www.culturalartsalliance.com/monarch-art-trail"
+  },
+  {
+    "id": "inlet-murals",
+    "title": "US-98 Underpass Murals",
+    "type": "Mural",
+    "lat": 30.2775,
+    "lng": -86.0019,
+    "credit": "CAA & FDOT Partnership",
+    "url": "https://www.culturalartsalliance.com/art-in-public-spaces"
+  }
+]
