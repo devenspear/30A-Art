@@ -31,7 +31,7 @@ export function WhatsOn() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-light text-primary mb-4">
-            What's On
+            What&apos;s On
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Upcoming exhibitions, events, and cultural happenings along 30A

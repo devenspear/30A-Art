@@ -52,7 +52,7 @@ export default function PrototypePage() {
                 30A<span className="mx-1">·</span>art
               </h3>
               <p className="text-[#F4F1EC]/70 text-sm">
-                The definitive guide to 30A's creative life
+                The definitive guide to 30A&apos;s creative life
               </p>
             </div>
 
