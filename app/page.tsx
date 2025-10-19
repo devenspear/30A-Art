@@ -31,7 +31,7 @@ export default function GatePage() {
         setError('Invalid access code. Please try again.');
         setCode('');
       }
-    } catch (err) {
+    } catch {
       setError('Something went wrong. Please try again.');
     } finally {
       setIsLoading(false);
@@ -47,7 +47,7 @@ export default function GatePage() {
             30A<span className="mx-1">·</span>art
           </h1>
           <p className="mt-4 text-[#F4F1EC]/70 text-sm">
-            The definitive guide to 30A's creative life
+            The definitive guide to 30A&apos;s creative life
           </p>
         </div>
 

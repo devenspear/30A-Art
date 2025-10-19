@@ -31,7 +31,7 @@ export function EmailCapture() {
         setStatus('error');
         setMessage(data.message);
       }
-    } catch (err) {
+    } catch {
       setStatus('error');
       setMessage('Something went wrong. Please try again.');
     }

@@ -29,7 +29,6 @@ export function Hero({
   variant = "default",
 }: HeroProps) {
   const isGradient = variant === "gradient";
-  const isMinimal = variant === "minimal";
 
   return (
     <section

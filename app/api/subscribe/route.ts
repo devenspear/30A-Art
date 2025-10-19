@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
       throw new Error('MailerLite API error');
     }
     */
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { success: false, message: 'Something went wrong. Please try again.' },
       { status: 500 }

@@ -13,18 +13,18 @@ export default function PrototypePage() {
             30A<span className="mx-2">·</span>art
           </h1>
           <p className="text-xl sm:text-2xl font-light text-white/90 mb-4">
-            The definitive guide to 30A's creative life
+            The definitive guide to 30A&apos;s creative life
           </p>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Curating and elevating the creative ecosystem along Florida's 30A corridor—from
+            Curating and elevating the creative ecosystem along Florida&apos;s 30A corridor—from
             Rosemary Beach to Seaside.
           </p>
 
           {/* Mission Statement */}
           <div className="mt-12 pt-12 border-t border-white/20">
             <p className="text-base text-white/80 italic">
-              "Connecting residents, artists, galleries, and cultural organizations through a
-              platform that celebrates the vibrant creative spirit of coastal Florida."
+              &ldquo;Connecting residents, artists, galleries, and cultural organizations through a
+              platform that celebrates the vibrant creative spirit of coastal Florida.&rdquo;
             </p>
           </div>
         </div>
