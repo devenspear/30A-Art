@@ -54,14 +54,14 @@ export function AnimatedHero() {
     },
   };
 
-  // Artistic floating artwork positions with 6 pieces
+  // Artistic floating artwork positions with 6 pieces - 50% larger, less overlap
   const artworkPieces = [
-    { id: 1, variant: floatingVariants, position: 'top-20 left-10', size: 'w-64 h-64', delay: 0, rotation: -5 },
-    { id: 2, variant: floatingVariants2, position: 'top-40 right-20', size: 'w-72 h-72', delay: 0.5, rotation: 8 },
-    { id: 3, variant: floatingVariants3, position: 'bottom-32 left-1/4', size: 'w-56 h-56', delay: 1, rotation: -3 },
-    { id: 4, variant: floatingVariants, position: 'bottom-20 right-1/3', size: 'w-60 h-60', delay: 1.5, rotation: 6 },
-    { id: 5, variant: floatingVariants2, position: 'top-1/2 left-[15%]', size: 'w-52 h-52', delay: 2, rotation: -8 },
-    { id: 6, variant: floatingVariants3, position: 'bottom-40 right-[20%]', size: 'w-68 h-68', delay: 2.5, rotation: 4 },
+    { id: 1, variant: floatingVariants, position: 'top-10 left-0', size: 'w-96 h-96', delay: 0, rotation: -5 },
+    { id: 2, variant: floatingVariants2, position: 'top-20 right-0', size: 'w-[432px] h-[432px]', delay: 0.5, rotation: 8 },
+    { id: 3, variant: floatingVariants3, position: 'bottom-20 left-[5%]', size: 'w-84 h-84', delay: 1, rotation: -3 },
+    { id: 4, variant: floatingVariants, position: 'bottom-10 right-[8%]', size: 'w-90 h-90', delay: 1.5, rotation: 6 },
+    { id: 5, variant: floatingVariants2, position: 'top-1/2 left-[35%]', size: 'w-78 h-78', delay: 2, rotation: -8 },
+    { id: 6, variant: floatingVariants3, position: 'bottom-1/2 right-[30%]', size: 'w-[408px] h-[408px]', delay: 2.5, rotation: 4 },
   ];
 
   return (
@@ -131,7 +131,7 @@ export function AnimatedHero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="mt-24 relative h-[600px] max-w-6xl mx-auto"
+            className="mt-24 relative h-[900px] max-w-6xl mx-auto"
           >
             {artworkFiles.map((filename, index) => {
               const artwork = artworkPieces[index];
@@ -156,7 +156,8 @@ export function AnimatedHero() {
                         alt={`30A Public Art ${index + 1}`}
                         fill
                         className="object-cover"
-                        sizes="(max-width: 768px) 280px, (max-width: 1200px) 320px, 360px"
+                        sizes="(max-width: 768px) 350px, (max-width: 1200px) 450px, 550px"
+                        unoptimized
                       />
 
                       {/* Subtle overlay gradient */}
