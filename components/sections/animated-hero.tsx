@@ -127,44 +127,17 @@ export function AnimatedHero() {
           </motion.div>
 
           {/* Floating Artwork Section */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            className="mt-24 relative h-[900px] max-w-6xl mx-auto"
-          >
-            {artworkFiles.map((filename, index) => {
-              const artwork = artworkPieces[index];
-              return (
-                <motion.div
-                  key={index}
-                  className={`absolute ${artwork.position} ${artwork.size}`}
-                  variants={artwork.variant}
-                  animate="animate"
-                  initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
-                  whileInView={{ opacity: 1, scale: 1, rotate: artwork.rotation }}
-                  transition={{ duration: 1.2, delay: artwork.delay }}
-                >
-                  <div className="relative w-full h-full group">
-                    {/* Glowing backdrop effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-200/30 via-teal-200/20 to-transparent rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700" />
-
-                    {/* Artwork container with shadow */}
-                    <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-500">
-                      <img
-                        src={`/artwork/${filename}`}
-                        alt={`30A Public Art ${index + 1}`}
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-
-                      {/* Subtle overlay gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/5" />
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
+          <div className="mt-24 grid grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {artworkFiles.map((filename, index) => (
+              <div key={index} className="aspect-square">
+                <img
+                  src={`/artwork/${filename}`}
+                  alt={`30A Public Art ${index + 1}`}
+                  className="w-full h-full object-cover rounded-2xl shadow-xl"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
