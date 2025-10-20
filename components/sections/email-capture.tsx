@@ -56,16 +56,17 @@ export function EmailCapture() {
               placeholder="Enter your email"
               disabled={status === 'loading' || status === 'success'}
               required
-              className="flex-1 px-4 py-3 bg-white border border-border rounded-lg
-                       focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent
+              className="flex-1 px-4 py-3 bg-white border-2 border-gray-300 rounded-lg text-gray-900
+                       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
                        transition-all duration-200
-                       disabled:opacity-50 disabled:cursor-not-allowed"
+                       disabled:opacity-50 disabled:cursor-not-allowed
+                       placeholder:text-gray-500"
             />
             <button
               type="submit"
               disabled={status === 'loading' || status === 'success'}
-              className="px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium
-                       hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium
+                       hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
                        transition-all duration-200
                        disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
             >

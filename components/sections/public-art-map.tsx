@@ -109,20 +109,6 @@ export function PublicArtMap() {
             )}
           </div>
         </div>
-
-        <div className="mt-6 text-center">
-          <p className="text-sm text-muted-foreground">
-            Data provided by{' '}
-            <a
-              href="https://www.culturalartsalliance.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-secondary hover:underline"
-            >
-              Cultural Arts Alliance of Walton County
-            </a>
-          </p>
-        </div>
       </div>
     </section>
   );

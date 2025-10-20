@@ -175,31 +175,6 @@ export function AnimatedHero() {
             </a>
           </motion.div>
         </div>
-
-        {/* Featured Art Preview Cards */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto"
-        >
-          {artworkCredits.slice(0, 3).map((artwork, index) => (
-            <motion.div
-              key={artwork.id}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-border"
-              whileHover={{ y: -8 }}
-            >
-              <div className="aspect-square bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
-                {/* Placeholder - replace with actual image */}
-                <span className="text-sm text-gray-600">
-                  {artwork.type}
-                </span>
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-1">{artwork.title}</h3>
-              <p className="text-sm text-gray-600">{artwork.credit}</p>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
 
       {/* Scroll Indicator */}
