@@ -140,7 +140,7 @@ export function AnimatedHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-light text-foreground mb-6 max-w-4xl mx-auto"
+            className="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-900 mb-6 max-w-4xl mx-auto"
           >
             The definitive guide to 30A&apos;s creative life
           </motion.h1>
@@ -149,7 +149,7 @@ export function AnimatedHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg sm:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl text-gray-700 mb-12 max-w-2xl mx-auto"
           >
             Discover sculptures, murals, and installations from Rosemary Beach to Seaside
           </motion.p>
