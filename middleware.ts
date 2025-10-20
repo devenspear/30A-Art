@@ -4,6 +4,11 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Allow artwork files to pass through without authentication
+  if (pathname.startsWith('/artwork/')) {
+    return NextResponse.next();
+  }
+
   // Protected routes that require authentication
   const protectedPaths = ['/prototype'];
   const isProtectedPath = protectedPaths.some(path => pathname.startsWith(path));
