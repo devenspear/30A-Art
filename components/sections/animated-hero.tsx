@@ -26,12 +26,14 @@ export function AnimatedHero() {
       .catch((err) => console.error('Error loading artwork credits:', err));
   }, []);
 
-  // Animation variants for floating artwork
+  // Animation variants for fluid, artistic floating artwork
   const floatingVariants = {
     animate: {
-      y: [0, -20, 0],
+      y: [0, -25, 10, -20, 0],
+      x: [0, 5, -3, 8, 0],
+      rotate: [0, 2, -1, 3, 0],
       transition: {
-        duration: 6,
+        duration: 12,
         repeat: Infinity,
         repeatType: 'loop' as const,
       },
@@ -40,10 +42,11 @@ export function AnimatedHero() {
 
   const floatingVariants2 = {
     animate: {
-      y: [0, -30, 0],
-      x: [0, 10, 0],
+      y: [0, -35, 15, -30, 0],
+      x: [0, 15, -10, 12, 0],
+      rotate: [0, -3, 1, -4, 0],
       transition: {
-        duration: 8,
+        duration: 15,
         repeat: Infinity,
         repeatType: 'loop' as const,
       },
@@ -52,64 +55,62 @@ export function AnimatedHero() {
 
   const floatingVariants3 = {
     animate: {
-      y: [0, -15, 0],
-      x: [0, -10, 0],
+      y: [0, -20, 8, -18, 0],
+      x: [0, -12, 6, -15, 0],
+      rotate: [0, 3, -2, 4, 0],
       transition: {
-        duration: 7,
+        duration: 13,
         repeat: Infinity,
         repeatType: 'loop' as const,
       },
     },
   };
 
-  // Placeholder artwork - will be replaced with actual images
-  const placeholderArtwork = [
-    { id: 1, variant: floatingVariants, position: 'top-20 left-10', size: 'w-48 h-48', delay: 0 },
-    { id: 2, variant: floatingVariants2, position: 'top-40 right-20', size: 'w-56 h-56', delay: 0.5 },
-    { id: 3, variant: floatingVariants3, position: 'bottom-32 left-1/4', size: 'w-40 h-40', delay: 1 },
-    { id: 4, variant: floatingVariants, position: 'bottom-20 right-1/3', size: 'w-52 h-52', delay: 1.5 },
-    { id: 5, variant: floatingVariants2, position: 'top-1/3 right-1/4', size: 'w-44 h-44', delay: 2 },
+  // Artistic floating artwork positions with 6 pieces
+  const artworkPieces = [
+    { id: 1, variant: floatingVariants, position: 'top-20 left-10', size: 'w-64 h-64', delay: 0, rotation: -5 },
+    { id: 2, variant: floatingVariants2, position: 'top-40 right-20', size: 'w-72 h-72', delay: 0.5, rotation: 8 },
+    { id: 3, variant: floatingVariants3, position: 'bottom-32 left-1/4', size: 'w-56 h-56', delay: 1, rotation: -3 },
+    { id: 4, variant: floatingVariants, position: 'bottom-20 right-1/3', size: 'w-60 h-60', delay: 1.5, rotation: 6 },
+    { id: 5, variant: floatingVariants2, position: 'top-1/2 left-[15%]', size: 'w-52 h-52', delay: 2, rotation: -8 },
+    { id: 6, variant: floatingVariants3, position: 'bottom-40 right-[20%]', size: 'w-68 h-68', delay: 2.5, rotation: 4 },
   ];
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-white via-gray-50 to-white overflow-hidden">
       {/* Animated Background Artwork */}
-      <div className="absolute inset-0 pointer-events-none opacity-40">
-        {placeholderArtwork.map((artwork) => (
+      <div className="absolute inset-0 pointer-events-none opacity-60">
+        {artworkPieces.map((artwork) => (
           <motion.div
             key={artwork.id}
             className={`absolute ${artwork.position} ${artwork.size} hidden lg:block`}
             variants={artwork.variant}
             animate="animate"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: artwork.delay }}
+            initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: artwork.rotation }}
+            transition={{ duration: 1.2, delay: artwork.delay }}
+            style={{ rotate: artwork.rotation }}
           >
-            {/* Placeholder for artwork image */}
-            <div className="w-full h-full rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 shadow-xl backdrop-blur-sm border border-primary/5">
-              <div className="w-full h-full flex items-center justify-center text-xs text-muted-foreground">
-                {artworkCredits[artwork.id - 1] ? (
-                  <div className="relative w-full h-full">
-                    {/* Replace this div with actual Image component when images are added */}
-                    <div className="w-full h-full bg-muted rounded-2xl flex items-center justify-center p-4 text-center">
-                      <span className="text-sm font-medium text-primary">
-                        {artworkCredits[artwork.id - 1].title}
-                      </span>
-                    </div>
-                    {/* When images are ready:
-                    <Image
-                      src={`/artwork/${artworkCredits[artwork.id - 1].filename}`}
-                      alt={artworkCredits[artwork.id - 1].title}
-                      fill
-                      className="object-cover rounded-2xl"
-                    />
-                    */}
-                  </div>
-                ) : (
-                  <span>Artwork {artwork.id}</span>
-                )}
+            {artworkCredits[artwork.id - 1] && (
+              <div className="relative w-full h-full group">
+                {/* Glowing backdrop effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-200/30 via-teal-200/20 to-transparent rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700" />
+
+                {/* Artwork container with shadow */}
+                <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-500">
+                  <Image
+                    src={`/artwork/${artworkCredits[artwork.id - 1].filename}`}
+                    alt={artworkCredits[artwork.id - 1].title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 0px, (max-width: 1200px) 280px, 320px"
+                  />
+
+                  {/* Subtle overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/5" />
+                </div>
               </div>
-            </div>
+            )}
           </motion.div>
         ))}
       </div>
