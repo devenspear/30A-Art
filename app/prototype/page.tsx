@@ -28,20 +28,20 @@ export default function PrototypePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             {/* Brand */}
             <div>
-              <h3 className="text-2xl font-light mb-2 text-primary">
+              <h3 className="text-2xl font-semibold mb-2 text-gray-900">
                 30A<span className="mx-1">·</span>art
               </h3>
-              <p className="text-muted-foreground text-sm">
+              <p className="text-gray-600 text-sm">
                 The definitive guide to 30A&apos;s creative life
               </p>
             </div>
 
             {/* Partners */}
             <div>
-              <h4 className="text-sm font-medium uppercase tracking-wider text-muted-foreground mb-4">
+              <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-700 mb-4">
                 Partners
               </h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
+              <ul className="space-y-2 text-sm text-gray-600">
                 <li>
                   <a
                     href="https://www.culturalartsalliance.com"
@@ -67,20 +67,20 @@ export default function PrototypePage() {
 
             {/* Legal */}
             <div>
-              <h4 className="text-sm font-medium uppercase tracking-wider text-muted-foreground mb-4">
+              <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-700 mb-4">
                 About
               </h4>
-              <p className="text-xs text-muted-foreground mb-4">
+              <p className="text-xs text-gray-600 mb-4">
                 30A·art is an independent platform. Not affiliated with 30A® trademark.
               </p>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-gray-600">
                 All photography used with permission or under Creative Commons licenses.
               </p>
             </div>
           </div>
 
-          <div className="pt-8 border-t border-border text-center">
-            <p className="text-xs text-muted-foreground">
+          <div className="pt-8 border-t border-gray-200 text-center">
+            <p className="text-xs text-gray-500">
               © 2025 30A·art · Private Preview for Stakeholders
             </p>
           </div>

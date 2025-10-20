@@ -74,7 +74,7 @@ export function AnimatedHero() {
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-white via-gray-50 to-white overflow-hidden">
       {/* Animated Background Artwork */}
-      <div className="absolute inset-0 pointer-events-none opacity-20">
+      <div className="absolute inset-0 pointer-events-none opacity-40">
         {placeholderArtwork.map((artwork) => (
           <motion.div
             key={artwork.id}
@@ -188,14 +188,14 @@ export function AnimatedHero() {
               className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-border"
               whileHover={{ y: -8 }}
             >
-              <div className="aspect-square bg-muted rounded-lg mb-4 flex items-center justify-center">
+              <div className="aspect-square bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
                 {/* Placeholder - replace with actual image */}
-                <span className="text-sm text-muted-foreground">
+                <span className="text-sm text-gray-600">
                   {artwork.type}
                 </span>
               </div>
-              <h3 className="font-semibold text-foreground mb-1">{artwork.title}</h3>
-              <p className="text-sm text-muted-foreground">{artwork.credit}</p>
+              <h3 className="font-semibold text-gray-900 mb-1">{artwork.title}</h3>
+              <p className="text-sm text-gray-600">{artwork.credit}</p>
             </motion.div>
           ))}
         </motion.div>

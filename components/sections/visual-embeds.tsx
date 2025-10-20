@@ -26,10 +26,10 @@ export function VisualEmbeds() {
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-light text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-4">
             Community Captures
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             Art and culture through the lens of our creative community
           </p>
         </div>

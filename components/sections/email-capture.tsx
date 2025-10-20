@@ -40,10 +40,10 @@ export function EmailCapture() {
   return (
     <section id="subscribe" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-4xl font-light text-primary mb-4">
+        <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-4">
           Stay Connected
         </h2>
-        <p className="text-lg text-muted-foreground mb-8">
+        <p className="text-lg text-gray-700 mb-8">
           Get updates on exhibitions, public art installations, and cultural events along the coast.
         </p>
 
@@ -86,7 +86,7 @@ export function EmailCapture() {
           )}
         </form>
 
-        <p className="mt-6 text-xs text-muted-foreground">
+        <p className="mt-6 text-xs text-gray-600">
           No spam, just art and culture. Unsubscribe anytime.
         </p>
       </div>

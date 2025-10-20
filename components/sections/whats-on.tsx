@@ -30,10 +30,10 @@ export function WhatsOn() {
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-light text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-4">
             What&apos;s On
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             Upcoming exhibitions, events, and cultural happenings along 30A
           </p>
         </div>
@@ -49,10 +49,10 @@ export function WhatsOn() {
                   {event.type}
                 </span>
               </div>
-              <h3 className="text-xl font-medium text-primary mb-2">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 {event.title}
               </h3>
-              <div className="space-y-1 text-sm text-muted-foreground">
+              <div className="space-y-1 text-sm text-gray-600">
                 <p>{event.date}</p>
                 <p>{event.location}</p>
               </div>
@@ -61,7 +61,7 @@ export function WhatsOn() {
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-sm text-muted-foreground bg-muted/50 inline-block px-6 py-3 rounded-lg">
+          <p className="text-sm text-gray-700 bg-gray-100 inline-block px-6 py-3 rounded-lg">
             Event calendar coming soon. Submit events at{' '}
             <span className="text-secondary font-medium">hello@30a.art</span>
           </p>
