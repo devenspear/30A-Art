@@ -151,13 +151,10 @@ export function AnimatedHero() {
 
                     {/* Artwork container with shadow */}
                     <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-500">
-                      <Image
+                      <img
                         src={`/artwork/${filename}`}
                         alt={`30A Public Art ${index + 1}`}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 350px, (max-width: 1200px) 450px, 550px"
-                        unoptimized
+                        className="absolute inset-0 w-full h-full object-cover"
                       />
 
                       {/* Subtle overlay gradient */}
