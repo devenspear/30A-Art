@@ -1,30 +1,18 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
-interface ArtworkCredit {
-  id: string;
-  filename: string;
-  title: string;
-  artist: string;
-  type: string;
-  year: string;
-  credit: string;
-  url: string;
-}
-
 export function AnimatedHero() {
-  const [artworkCredits, setArtworkCredits] = useState<ArtworkCredit[]>([]);
-
-  useEffect(() => {
-    // Load artwork credits
-    fetch('/data/artwork-credits.json')
-      .then((res) => res.json())
-      .then((data) => setArtworkCredits(data))
-      .catch((err) => console.error('Error loading artwork credits:', err));
-  }, []);
+  // Hardcoded artwork filenames - no need for JSON loading
+  const artworkFiles = [
+    'unnamed.jpg',
+    'unnamed-1.jpg',
+    'unnamed-2.jpg',
+    'unnamed-3.jpg',
+    'unnamed-4.jpg',
+    'unnamed-5.jpg',
+  ];
 
   // Animation variants for fluid, artistic floating artwork
   const floatingVariants = {
@@ -77,44 +65,7 @@ export function AnimatedHero() {
   ];
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-white via-gray-50 to-white overflow-hidden">
-      {/* Animated Background Artwork */}
-      <div className="absolute inset-0 pointer-events-none opacity-60">
-        {artworkPieces.map((artwork) => (
-          <motion.div
-            key={artwork.id}
-            className={`absolute ${artwork.position} ${artwork.size} hidden md:block`}
-            variants={artwork.variant}
-            animate="animate"
-            initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: artwork.rotation }}
-            transition={{ duration: 1.2, delay: artwork.delay }}
-            style={{ rotate: artwork.rotation }}
-          >
-            {artworkCredits[artwork.id - 1] && (
-              <div className="relative w-full h-full group">
-                {/* Glowing backdrop effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-200/30 via-teal-200/20 to-transparent rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700" />
-
-                {/* Artwork container with shadow */}
-                <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-500">
-                  <Image
-                    src={`/artwork/${artworkCredits[artwork.id - 1].filename}`}
-                    alt={artworkCredits[artwork.id - 1].title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 0px, (max-width: 1200px) 280px, 320px"
-                  />
-
-                  {/* Subtle overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/5" />
-                </div>
-              </div>
-            )}
-          </motion.div>
-        ))}
-      </div>
-
+    <section className="relative bg-gradient-to-br from-white via-gray-50 to-white overflow-hidden">
       {/* Hero Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-40 lg:py-48">
         <div className="text-center">
@@ -173,6 +124,48 @@ export function AnimatedHero() {
             >
               Stay Updated
             </a>
+          </motion.div>
+
+          {/* Floating Artwork Section */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="mt-24 relative h-[600px] max-w-6xl mx-auto"
+          >
+            {artworkFiles.map((filename, index) => {
+              const artwork = artworkPieces[index];
+              return (
+                <motion.div
+                  key={index}
+                  className={`absolute ${artwork.position} ${artwork.size}`}
+                  variants={artwork.variant}
+                  animate="animate"
+                  initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
+                  whileInView={{ opacity: 1, scale: 1, rotate: artwork.rotation }}
+                  transition={{ duration: 1.2, delay: artwork.delay }}
+                >
+                  <div className="relative w-full h-full group">
+                    {/* Glowing backdrop effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-200/30 via-teal-200/20 to-transparent rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700" />
+
+                    {/* Artwork container with shadow */}
+                    <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-500">
+                      <Image
+                        src={`/artwork/${filename}`}
+                        alt={`30A Public Art ${index + 1}`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 280px, (max-width: 1200px) 320px, 360px"
+                      />
+
+                      {/* Subtle overlay gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/5" />
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </div>
