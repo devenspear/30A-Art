@@ -83,7 +83,7 @@ export function AnimatedHero() {
         {artworkPieces.map((artwork) => (
           <motion.div
             key={artwork.id}
-            className={`absolute ${artwork.position} ${artwork.size} hidden lg:block`}
+            className={`absolute ${artwork.position} ${artwork.size} hidden md:block`}
             variants={artwork.variant}
             animate="animate"
             initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
