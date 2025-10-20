@@ -3,66 +3,35 @@
 import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 
-// Dynamically import the map component to avoid SSR issues
-const MapContainer = dynamic(
-  () => import('react-leaflet').then((mod) => mod.MapContainer),
-  { ssr: false }
-);
-const TileLayer = dynamic(
-  () => import('react-leaflet').then((mod) => mod.TileLayer),
-  { ssr: false }
-);
-const Marker = dynamic(
-  () => import('react-leaflet').then((mod) => mod.Marker),
-  { ssr: false }
-);
-const Popup = dynamic(
-  () => import('react-leaflet').then((mod) => mod.Popup),
-  { ssr: false }
-);
+import type { ArtLocation } from './leaflet-map';
 
-interface ArtLocation {
-  id: string;
-  title: string;
-  type: string;
-  lat: number;
-  lng: number;
-  credit: string;
-  url: string;
-}
+const LeafletMap = dynamic(
+  () => import('./leaflet-map').then((mod) => mod.LeafletMap),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-full w-full bg-muted/40 animate-pulse" aria-hidden />
+    ),
+  }
+);
 
 export function PublicArtMap() {
   const [artLocations, setArtLocations] = useState<ArtLocation[]>([]);
-  const [isClient, setIsClient] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
-    // Load public art data
+    setIsMounted(true);
+
     fetch('/data/public_art.json')
       .then((res) => res.json())
       .then((data) => setArtLocations(data))
       .catch((err) => console.error('Error loading art locations:', err));
   }, []);
 
-  if (!isClient) {
-    return (
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-light text-primary mb-4 text-center">
-            Public Art Along 30A
-          </h2>
-          <div className="h-96 bg-muted rounded-xl flex items-center justify-center">
-            <p className="text-muted-foreground">Loading map...</p>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   return (
-    <section id="map" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+    <section id="map" className="pt-12 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-50">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-10">
+        <div className="text-center mb-8">
           <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-4">
             Public Art Along 30A
           </h2>
@@ -73,39 +42,12 @@ export function PublicArtMap() {
 
         <div className="rounded-xl overflow-hidden shadow-lg border border-border">
           <div className="h-96 sm:h-[500px]">
-            {typeof window !== 'undefined' && (
-              <MapContainer
-                center={[30.2844, -86.0034]}
-                zoom={12}
-                style={{ height: '100%', width: '100%' }}
-                scrollWheelZoom={false}
-              >
-                <TileLayer
-                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                {artLocations.map((location) => (
-                  <Marker key={location.id} position={[location.lat, location.lng]}>
-                    <Popup>
-                      <div className="p-2">
-                        <h3 className="font-semibold text-primary mb-1">{location.title}</h3>
-                        <p className="text-sm text-muted-foreground mb-2">{location.type}</p>
-                        <p className="text-xs text-muted-foreground mb-2">
-                          Credit: {location.credit}
-                        </p>
-                        <a
-                          href={location.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-xs text-secondary hover:underline"
-                        >
-                          Learn more →
-                        </a>
-                      </div>
-                    </Popup>
-                  </Marker>
-                ))}
-              </MapContainer>
+            {isMounted ? (
+              <LeafletMap locations={artLocations} />
+            ) : (
+              <div className="h-full bg-muted rounded-xl flex items-center justify-center">
+                <p className="text-muted-foreground">Loading map...</p>
+              </div>
             )}
           </div>
         </div>

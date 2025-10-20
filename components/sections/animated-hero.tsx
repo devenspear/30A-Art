@@ -4,64 +4,79 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 export function AnimatedHero() {
-  // Hardcoded artwork filenames - no need for JSON loading
-  const artworkFiles = [
-    'unnamed.jpg',
-    'unnamed-1.jpg',
-    'unnamed-2.jpg',
-    'unnamed-3.jpg',
-    'unnamed-4.jpg',
-    'unnamed-5.jpg',
-  ];
-
-  // Animation variants for fluid, artistic floating artwork
-  const floatingVariants = {
-    animate: {
-      y: [0, -25, 10, -20, 0],
-      x: [0, 5, -3, 8, 0],
-      rotate: [0, 2, -1, 3, 0],
-      transition: {
-        duration: 12,
-        repeat: Infinity,
-        repeatType: 'loop' as const,
-      },
+  const floatingArtwork = [
+    {
+      id: 1,
+      filename: 'unnamed-1.jpg',
+      top: '28%',
+      left: '22%',
+      size: 'w-32 h-32 sm:w-42 sm:h-42 lg:w-56 lg:h-56',
+      y: [0, -10, 6, -8, 0],
+      x: [0, 10, -6, 8, 0],
+      rotate: [-6, 3, -2, 4, -6],
+      delay: 0,
+      duration: 18,
     },
-  };
-
-  const floatingVariants2 = {
-    animate: {
-      y: [0, -35, 15, -30, 0],
-      x: [0, 15, -10, 12, 0],
-      rotate: [0, -3, 1, -4, 0],
-      transition: {
-        duration: 15,
-        repeat: Infinity,
-        repeatType: 'loop' as const,
-      },
+    {
+      id: 2,
+      filename: 'unnamed-2.jpg',
+      top: '34%',
+      left: '65%',
+      size: 'w-32 h-32 sm:w-44 sm:h-44 lg:w-58 lg:h-58',
+      y: [0, -12, 8, -10, 0],
+      x: [0, -8, 10, -8, 0],
+      rotate: [4, -3, 2, -5, 4],
+      delay: 0.6,
+      duration: 20,
     },
-  };
-
-  const floatingVariants3 = {
-    animate: {
-      y: [0, -20, 8, -18, 0],
-      x: [0, -12, 6, -15, 0],
-      rotate: [0, 3, -2, 4, 0],
-      transition: {
-        duration: 13,
-        repeat: Infinity,
-        repeatType: 'loop' as const,
-      },
+    {
+      id: 3,
+      filename: 'unnamed-3.jpg',
+      top: '52%',
+      left: '40%',
+      size: 'w-30 h-30 sm:w-42 sm:h-42 lg:w-54 lg:h-54',
+      y: [0, -10, 6, -8, 0],
+      x: [0, 8, -10, 6, 0],
+      rotate: [-3, 2, -1, 3, -3],
+      delay: 1.2,
+      duration: 16,
     },
-  };
-
-  // Artistic floating artwork positions with 6 pieces - 50% larger, less overlap
-  const artworkPieces = [
-    { id: 1, variant: floatingVariants, position: 'top-10 left-0', size: 'w-96 h-96', delay: 0, rotation: -5 },
-    { id: 2, variant: floatingVariants2, position: 'top-20 right-0', size: 'w-[432px] h-[432px]', delay: 0.5, rotation: 8 },
-    { id: 3, variant: floatingVariants3, position: 'bottom-20 left-[5%]', size: 'w-84 h-84', delay: 1, rotation: -3 },
-    { id: 4, variant: floatingVariants, position: 'bottom-10 right-[8%]', size: 'w-90 h-90', delay: 1.5, rotation: 6 },
-    { id: 5, variant: floatingVariants2, position: 'top-1/2 left-[35%]', size: 'w-78 h-78', delay: 2, rotation: -8 },
-    { id: 6, variant: floatingVariants3, position: 'bottom-1/2 right-[30%]', size: 'w-[408px] h-[408px]', delay: 2.5, rotation: 4 },
+    {
+      id: 4,
+      filename: 'unnamed-4.jpg',
+      top: '60%',
+      left: '80%',
+      size: 'w-32 h-32 sm:w-44 sm:h-44 lg:w-58 lg:h-58',
+      y: [0, -10, 8, -9, 0],
+      x: [0, -10, 12, -8, 0],
+      rotate: [5, -2, 4, -3, 5],
+      delay: 1.8,
+      duration: 19,
+    },
+    {
+      id: 5,
+      filename: 'unnamed-5.jpg',
+      top: '72%',
+      left: '28%',
+      size: 'w-32 h-32 sm:w-44 sm:h-44 lg:w-58 lg:h-58',
+      y: [0, -9, 6, -7, 0],
+      x: [0, 8, -10, 8, 0],
+      rotate: [-8, 4, -3, 5, -8],
+      delay: 2.2,
+      duration: 21,
+    },
+    {
+      id: 6,
+      filename: 'unnamed-6.jpg',
+      top: '78%',
+      left: '62%',
+      size: 'w-34 h-34 sm:w-46 sm:h-46 lg:w-60 lg:h-60',
+      y: [0, -10, 7, -8, 0],
+      x: [0, -10, 12, -8, 0],
+      rotate: [3, -4, 2, -5, 3],
+      delay: 2.8,
+      duration: 22,
+    },
   ];
 
   return (
@@ -106,37 +121,43 @@ export function AnimatedHero() {
             Discover sculptures, murals, and installations from Rosemary Beach to Seaside
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <a
-              href="#map"
-              className="px-8 py-4 bg-primary text-primary-foreground rounded-xl font-medium hover:bg-primary/90 transition-all duration-200 shadow-lg hover:shadow-xl"
-            >
-              Explore the Map
-            </a>
-            <a
-              href="#subscribe"
-              className="px-8 py-4 bg-white text-primary border-2 border-primary rounded-xl font-medium hover:bg-primary hover:text-white transition-all duration-200"
-            >
-              Stay Updated
-            </a>
-          </motion.div>
-
-          {/* Floating Artwork Section */}
-          <div className="mt-24 grid grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {artworkFiles.map((filename, index) => (
-              <div key={index} className="aspect-square">
-                <img
-                  src={`/artwork/${filename}`}
-                  alt={`30A Public Art ${index + 1}`}
-                  className="w-full h-full object-cover rounded-2xl shadow-xl"
-                />
-              </div>
-            ))}
+          {/* Floating Artwork Showcase */}
+          <div className="mt-24 flex justify-center">
+            <div className="relative w-full max-w-6xl h-[420px] sm:h-[520px] lg:h-[600px] overflow-hidden rounded-[3rem] bg-white/30 ring-1 ring-black/5 backdrop-blur-sm">
+              {floatingArtwork.map(piece => (
+                <motion.div
+                  key={piece.id}
+                  className="absolute -translate-x-1/2 -translate-y-1/2"
+                  style={{ top: piece.top, left: piece.left }}
+                  initial={{ opacity: 0, scale: 0.94 }}
+                  animate={{
+                    opacity: [0.9, 0.92, 0.88, 0.94, 0.9],
+                    y: piece.y,
+                    x: piece.x,
+                    rotate: piece.rotate,
+                    scale: [0.95, 1.02, 0.98, 1.04, 0.95],
+                  }}
+                  transition={{
+                    duration: piece.duration,
+                    delay: piece.delay,
+                    repeat: Infinity,
+                    repeatType: 'loop',
+                    ease: 'easeInOut',
+                  }}
+                >
+                  <div className={`relative ${piece.size} overflow-hidden rounded-[2rem] shadow-[0_25px_70px_-35px_rgba(15,23,42,0.35)]`}>
+                    <Image
+                      src={`/artwork/${piece.filename}`}
+                      alt={`30A Public Art ${piece.id}`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover"
+                      priority={piece.id <= 3}
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

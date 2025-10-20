@@ -1,18 +1,6 @@
 [
   {
     "id": "artwork-1",
-    "filename": "unnamed.jpg",
-    "title": "30A Public Art",
-    "artist": "Various Artists",
-    "type": "Public Art",
-    "year": "2024",
-    "credit": "Cultural Arts Alliance",
-    "url": "https://www.culturalartsalliance.com",
-    "photographer": "",
-    "license": "Used with permission"
-  },
-  {
-    "id": "artwork-2",
     "filename": "unnamed-1.jpg",
     "title": "30A Public Art",
     "artist": "Various Artists",
@@ -24,7 +12,7 @@
     "license": "Used with permission"
   },
   {
-    "id": "artwork-3",
+    "id": "artwork-2",
     "filename": "unnamed-2.jpg",
     "title": "30A Public Art",
     "artist": "Various Artists",
@@ -36,7 +24,7 @@
     "license": "Used with permission"
   },
   {
-    "id": "artwork-4",
+    "id": "artwork-3",
     "filename": "unnamed-3.jpg",
     "title": "30A Public Art",
     "artist": "Various Artists",
@@ -48,7 +36,7 @@
     "license": "Used with permission"
   },
   {
-    "id": "artwork-5",
+    "id": "artwork-4",
     "filename": "unnamed-4.jpg",
     "title": "30A Public Art",
     "artist": "Various Artists",
@@ -60,8 +48,20 @@
     "license": "Used with permission"
   },
   {
-    "id": "artwork-6",
+    "id": "artwork-5",
     "filename": "unnamed-5.jpg",
+    "title": "30A Public Art",
+    "artist": "Various Artists",
+    "type": "Public Art",
+    "year": "2024",
+    "credit": "Cultural Arts Alliance",
+    "url": "https://www.culturalartsalliance.com",
+    "photographer": "",
+    "license": "Used with permission"
+  },
+  {
+    "id": "artwork-6",
+    "filename": "unnamed-6.jpg",
     "title": "30A Public Art",
     "artist": "Various Artists",
     "type": "Public Art",
